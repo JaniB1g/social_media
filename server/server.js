@@ -8,13 +8,16 @@ app.use(cors());
 const db = require('./models');
 
 const usersRouter = require('./routes/Users');
-app.use("/registration",usersRouter);
+app.use("/users",usersRouter);
 
 const uploadsRouter = require('./routes/Uploads');
 app.use("/uploads",uploadsRouter);
 
 const commentsRouter = require('./routes/Comments');
 app.use("/comments",commentsRouter);
+
+const likesRouter = require('./routes/Likes');
+app.use("/likes",likesRouter);
 
 db.sequelize.sync().then(()=> {
     app.listen(3001,(req,res) =>{

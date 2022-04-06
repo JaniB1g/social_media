@@ -19,7 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     Uploads.associate = (models) => {
         Uploads.hasMany(models.Comments, {
             onDelete: "cascade",
+        });
+
+        Uploads.hasMany(models.Likes, {
+            onDelete: "cascade",
         })
     }
+
+    
     return Uploads;
 }
